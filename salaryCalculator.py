@@ -1,33 +1,31 @@
 
 
 
-weeklyHours = 48
+#x = input("Enter Number:")
+
+
+weeklyHours = 40
 hourlyPayRate = 15
 
 weeklyPayPeriod = weeklyHours * hourlyPayRate
 biWeeklyPayPeriod = weeklyPayPeriod * 2
-monthlyPayPeriod = weeklyPayPeriod* 4
-
+monthlyPayPeriod = weeklyPayPeriod * 4
+yearlyPayPeriod = weeklyPayPeriod * 52
 extraTearDownPay = 300
-
 
 monthlyPayPeriodWITHbonus = (monthlyPayPeriod + (extraTearDownPay / 2))
 
+
 your = "Your"
-weeklyPayLabel = "weekly pay is:"
-biWeeklyLabel = "paycheck every 2 weeks is:"
-monthlyPayLabel = "monthly pay is:"
-monthlyPlusBONUSPayLabel = "monthly pay PLUS bonus is:"
+weeklyPayLabel = "Weekly:"
+biWeeklyLabel = "Paycheck:"
+monthlyPayLabel = "Monthly:"
+monthlyPlusBONUSPayLabel = "Monthly pay PLUS bonus:"
+yearlyPayLabel = "Yearly:"
 
 
-print(your) + " " + (weeklyPayLabel)
-print(weeklyPayPeriod)
 
-print(your) + " " + (biWeeklyLabel)
-print(biWeeklyPayPeriod)
-
-print(your) + " " + (monthlyPayLabel)
-print(monthlyPayPeriod)
-
-print(your) + " " + (monthlyPlusBONUSPayLabel)
-print(monthlyPayPeriodWITHbonus)
+print(weeklyPayLabel + str(weeklyPayPeriod))
+print(biWeeklyLabel + str(biWeeklyPayPeriod))
+print(monthlyPayLabel + str(monthlyPayPeriod))
+print(yearlyPayLabel + str(yearlyPayPeriod))
