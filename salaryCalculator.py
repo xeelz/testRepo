@@ -1,18 +1,17 @@
 
 
 
-#x = input("Enter Number:")
+weeklyHours = input("Enter Weekly Hours:")
 
 
-weeklyHours = 40
 hourlyPayRate = 15
 
 weeklyPayPeriod = weeklyHours * hourlyPayRate
 biWeeklyPayPeriod = weeklyPayPeriod * 2
 monthlyPayPeriod = weeklyPayPeriod * 4
 yearlyPayPeriod = weeklyPayPeriod * 52
-extraTearDownPay = 300
 
+extraTearDownPay = 300
 monthlyPayPeriodWITHbonus = (monthlyPayPeriod + (extraTearDownPay / 2))
 
 
