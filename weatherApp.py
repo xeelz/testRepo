@@ -1,18 +1,34 @@
 import tkinter as tk
 import requests
 
-def test_function(entry):
-    print("This is the entry:", entry)
 
-#354be25423270b589e0c8eb891eeec73
-#api.openweathermap.org/data/2.5/forecast?q={city name},{country code} 
+
+
+def format_response(weather):
+    try:
+
+        name = weather['name']
+        desc = weather['weather'][0]['description']
+        temp = weather['main']['temp']
+        pressure = weather['main']["pressure"]
+
+        final_str = "City: %s \nConditions: %s \nTemperature (°F): %s \nPressure (hPa): %s" % (name, desc, temp, pressure)
+    except:
+        final_str = "There was a problem with your request."
+    
+    return final_str
+   
+
 
 def get_weather(city):
     weather_key = '354be25423270b589e0c8eb891eeec73'
-    url = 'https://api.openweathermap.org/data/2.5/forecast?q={city name},{country code}'
+    url = 'https://api.openweathermap.org/data/2.5/weather'
     params = {'APPID': weather_key, 'q': city, 'units': 'imperial'}
     response = requests.get(url, params=params)
-    print(response.json())
+    weather = response.json()
+    label["text"] = format_response(weather)
+
+
 HEIGHT = 500
 WIDTH  = 600
 
@@ -40,7 +56,7 @@ button.place(relx=0.7, relheight=1, relwidth=0.3)
 lower_frame = tk.Frame(root, bg="#80c1ff", bd=10)
 lower_frame.place(relx=0.5, rely=0.25, relwidth=0.75, relheight=0.6, anchor="n")
 
-label = tk.Label(lower_frame)
+label = tk.Label(lower_frame, font = ("Courier", 18), justify = "center", bd = 4 )
 label.place(relwidth=1, relheight=1)
 
 
